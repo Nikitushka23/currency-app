@@ -6,34 +6,30 @@ import { CurrencyPage } from "./CurrencyPage";
 import { ExchangePage } from "./ExchangePage";
 
 export const NavBar = () => {
-    const [value, setValue] = useState(0);
+  const [value, setValue] = useState(0);
 
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <Router>
-      <AppBar position="static">
+      <AppBar position="static" color="secondary">
         <Tabs value={value} onChange={handleChange}>
-         
-            <Tab label="Calculator" component={Link} to='/' />
-         
-         
-            <Tab label="Currency values" component={Link} to='/CurrencyPage'/>
-         
+          <Tab label="Calculator" component={Link} to="/" />
+          <Tab label="Currency values" component={Link} to="/CurrencyPage" />
         </Tabs>
       </AppBar>
 
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <Switch>
-      <Route path="/">
-          <ExchangePage />
-        </Route>
         <Route path="/CurrencyPage">
           <CurrencyPage />
         </Route>
-        
+        <Route path="/">
+          <ExchangePage />
+        </Route>
       </Switch>
     </Router>
   );

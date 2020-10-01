@@ -2,6 +2,8 @@ const InitialState = {
   curr: {},
   all: [],
   favourites: [],
+  selectedBase: null,
+  selectedTarget: null,
 };
 
 export const reducer = (state = InitialState, action) => {
@@ -38,6 +40,16 @@ export const reducer = (state = InitialState, action) => {
           favourites: [...newFavourites],
         };
     }
+    case "SET_BASE":
+        return{
+          ...state,
+          selectedBase: action.payload
+        }
+        case "SET_TARGET":
+        return{
+          ...state,
+          selectedTarget: action.payload
+        }
     default:
       return state;
   }
